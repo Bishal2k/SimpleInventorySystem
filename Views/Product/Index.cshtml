@@ -4,58 +4,90 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Product Entry</h1>
+<div class="float-right">
+    <form asp-controller="Product" asp-action="Index">
+        <span class="btn-group">
+            <input name="searchText" id="txtSearch" type="text" class="form-control" />
+            <input type="submit" id="btnSearch" value="Search" class="btn btn-primary" />
+        </span>
+
+    </form>
+
+</div>
 
 <p>
-    <a asp-action="InsertProduct">Add</a>
+   
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
+<div class="table-responsive-md">
+    <table class="table table-bordered table-md" id="productTable">
+        <thead>
+            <tr>
+                <th>
 
-                Product Id
-            </th>
-            <th>
-                BarCode
-            </th>
-            <th>
-                Product Name
-            </th>
-            <th>
-                Category Id
-            </th>
-            <th>
-                Category Name
-            </th>
-            <th>
-                Actions
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.barCode)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.categoryId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.categoryName)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+                    Product Id
+                </th>
+                <th>
+                    BarCode
+                </th>
+                <th>
+                    Product Name
+                </th>
+                <th>
+                    Category Id
+                </th>
+                <th>
+                    Category Name
+                </th>
+                <th>
+                    Actions
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Count() != 0)
+            {
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.barCode)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.categoryId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.categoryName)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Update", new { id = item.id, item.name, item.barCode, item.categoryName }, new { @class = "btn btn-success" })
+                            <a class="btn btn-danger delete" data-id="@item.id" data-controller="Category" data-action="delete" data-body-message="Are you sure?"> Delete</a>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="6" class="text-center">No Record Found!</td>
+                </tr>
+            }
+
+            @if (ViewBag.Message != null)
+            {
+                
+            }
+        </tbody>
+    </table>
+</div>
+
+    <p class="float-right">
+        <br />
+        <a asp-action="InsertProduct" class="btn btn-primary">Add</a>
+    </p>

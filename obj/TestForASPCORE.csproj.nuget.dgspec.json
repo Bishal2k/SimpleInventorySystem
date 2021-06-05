@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\BISHAL\\source\\repos\\TestForASPCORE\\TestForASPCORE.csproj": {}
+    "C:\\Users\\BISHAL\\source\\repos\\SimpleInventorySystem\\TestForASPCORE\\TestForASPCORE.csproj": {}
   },
   "projects": {
-    "C:\\Users\\BISHAL\\source\\repos\\TestForASPCORE\\TestForASPCORE.csproj": {
+    "C:\\Users\\BISHAL\\source\\repos\\SimpleInventorySystem\\TestForASPCORE\\TestForASPCORE.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\BISHAL\\source\\repos\\TestForASPCORE\\TestForASPCORE.csproj",
+        "projectUniqueName": "C:\\Users\\BISHAL\\source\\repos\\SimpleInventorySystem\\TestForASPCORE\\TestForASPCORE.csproj",
         "projectName": "TestForASPCORE",
-        "projectPath": "C:\\Users\\BISHAL\\source\\repos\\TestForASPCORE\\TestForASPCORE.csproj",
+        "projectPath": "C:\\Users\\BISHAL\\source\\repos\\SimpleInventorySystem\\TestForASPCORE\\TestForASPCORE.csproj",
         "packagesPath": "C:\\Users\\BISHAL\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\BISHAL\\source\\repos\\TestForASPCORE\\obj\\",
+        "outputPath": "C:\\Users\\BISHAL\\source\\repos\\SimpleInventorySystem\\TestForASPCORE\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\BISHAL\\AppData\\Roaming\\NuGet\\NuGet.Config",

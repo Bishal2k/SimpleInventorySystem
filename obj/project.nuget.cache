@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zNYluDBo0lOvwwf7kjSX2p8wfhvGcSa5GPBi622kyQNOozQzgy2rvgy+vAYvKH4KVdEWI6mjKV/qQ9AWsF6ODw==",
+  "dgSpecHash": "rB9F3zQ5/tzq3XhNO9c1og8njLfqIgugM7qm4sfwULHP/QqNRJFuxdQQ0kXc7BwRByK5804iv97GjYjqhjYrEg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\BISHAL\\source\\repos\\TestForASPCORE\\TestForASPCORE.csproj",
+  "projectFilePath": "C:\\Users\\BISHAL\\source\\repos\\SimpleInventorySystem\\TestForASPCORE\\TestForASPCORE.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\BISHAL\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",
     "C:\\Users\\BISHAL\\.nuget\\packages\\google.protobuf\\3.14.0\\google.protobuf.3.14.0.nupkg.sha512",

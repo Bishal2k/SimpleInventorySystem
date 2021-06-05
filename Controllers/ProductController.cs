@@ -11,16 +11,24 @@ namespace TestForASPCORE.Controllers
 {
     public class ProductController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Index(string searchText)
         {
             ProductContext context = HttpContext.RequestServices.GetService(typeof(TestForASPCORE.Models.ProductContext)) as ProductContext;
+            if (searchText != "" && searchText != null)
+            {
+                return View(context.searchProduct(searchText));
+            }
+            else
+            {
+                return View(context.getProduct());
+            }
             
-            return View(context.getProduct());
 
 
         }
         public IActionResult InsertProduct(Product obj)
         {
+
             ProductCategoryContext context = HttpContext.RequestServices.GetService(typeof(TestForASPCORE.Models.ProductCategoryContext)) as ProductCategoryContext;
             List<ProductCategory> list = context.getCategories();
             // List<ProductCategory> list2 = getCategory();
@@ -31,27 +39,69 @@ namespace TestForASPCORE.Controllers
         [HttpPost]
         public IActionResult insertProduct(Product obj)
         {
-            try
+            if (ModelState.IsValid)
             {
-                ProductContext context = HttpContext.RequestServices.GetService(typeof(TestForASPCORE.Models.ProductContext)) as ProductContext;
+                try
+                {
+                    ProductContext context = HttpContext.RequestServices.GetService(typeof(TestForASPCORE.Models.ProductContext)) as ProductContext;
 
-                context.insert(obj);
-                return RedirectToAction("Index");
+                    context.insert(obj);
+                    return RedirectToAction("Index");
 
+                }
+
+                catch (Exception ex)
+                {
+
+                    return RedirectToAction("Index");
+                }
             }
-
-            catch (Exception ex)
+            else
             {
-
-                return RedirectToAction("Index");
+                return RedirectToAction("InsertProduct");
             }
+            
         }
-        private List<ProductCategory> getCategory()
+        public IActionResult Update(Product obj)
         {
-            return new List<ProductCategory>()
-            {
-                new ProductCategory(){ id=20, name="oppo"}
-            };
+
+            ProductCategoryContext context = HttpContext.RequestServices.GetService(typeof(TestForASPCORE.Models.ProductCategoryContext)) as ProductCategoryContext;
+            List<ProductCategory> list = context.getCategories();
+            ViewBag.productData = list;
+            return View(obj);
+
+
         }
+        [HttpPost]
+        public IActionResult updateProduct(Product obj)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+
+
+                    ProductContext context = HttpContext.RequestServices.GetService(typeof(TestForASPCORE.Models.ProductContext)) as ProductContext;
+
+                    context.update(obj);
+
+                    return RedirectToAction("Index");
+
+                }
+
+                catch (Exception ex)
+                {
+                    throw;
+
+                }
+            }
+            else
+            {
+                return RedirectToAction("Update");
+            }
+            
+
+        }
+
     }
 }

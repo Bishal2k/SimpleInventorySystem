@@ -27,6 +27,9 @@ namespace TestForASPCORE
             services.AddControllersWithViews();
             services.Add(new ServiceDescriptor(typeof(ProductCategoryContext), new ProductCategoryContext(Configuration.GetConnectionString("Conn"))));
             services.Add(new ServiceDescriptor(typeof(ProductContext), new ProductContext(Configuration.GetConnectionString("Conn"))));
+            services.Add(new ServiceDescriptor(typeof(SupplierContext), new SupplierContext(Configuration.GetConnectionString("Conn"))));
+            services.Add(new ServiceDescriptor(typeof(CustomerContext), new CustomerContext(Configuration.GetConnectionString("Conn"))));
+            services.Add(new ServiceDescriptor(typeof(PurchaseContext), new PurchaseContext(Configuration.GetConnectionString("Conn"))));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -53,7 +56,7 @@ namespace TestForASPCORE
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Product}/{action=Index}/{id?}");
+                    pattern: "{controller=Purchase}/{action=Index}/{id?}");
             });
         }
     }

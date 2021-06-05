@@ -25,13 +25,7 @@ namespace TestForASPCORE.Controllers
           
             
         }
-        /**[HttpPost]
-        public IActionResult searchCategory(String searchText)
-        {
-            ProductCategoryContext context = HttpContext.RequestServices.GetService(typeof(TestForASPCORE.Models.ProductCategoryContext)) as ProductCategoryContext;
 
-            return View(context.searchCatagories(searchText));
-        }**/
 
         public IActionResult Insert(ProductCategory obj)
         {
@@ -41,20 +35,29 @@ namespace TestForASPCORE.Controllers
         [HttpPost]
         public IActionResult insertCategory(ProductCategory obj)
         {
-            try
+            if (ModelState.IsValid)
             {
-                ProductCategoryContext context = HttpContext.RequestServices.GetService(typeof(TestForASPCORE.Models.ProductCategoryContext)) as ProductCategoryContext;
+                try
+                {
+                    ProductCategoryContext context = HttpContext.RequestServices.GetService(typeof(TestForASPCORE.Models.ProductCategoryContext)) as ProductCategoryContext;
 
-                context.insert(obj);
-                return RedirectToAction("Index");
-                
+                    context.insert(obj);
+                    return RedirectToAction("Index");
+
+                }
+
+                catch (Exception ex)
+                {
+
+                    return RedirectToAction("Index");
+                }
+            }
+            else
+
+            {
+                return RedirectToAction("Insert");
             }
             
-            catch (Exception ex)
-            {
-
-                return RedirectToAction("Index");
-            }
         }
         public IActionResult Delete(int id)
         {
@@ -67,11 +70,20 @@ namespace TestForASPCORE.Controllers
                 return RedirectToAction("Index");
 
             }
+            catch (MySql.Data.MySqlClient.MySqlException)
+            {
+
+                string errorMessage = "The data is associated with other tables. Please remove the data ASsociations!";
+                ViewBag.Message2 = errorMessage;
+                return View("../Category/Index",ViewBag.Message2);
+
+            }
             catch (Exception ex)
             {
 
                 throw;
             }
+            
             
         }
        
@@ -87,30 +99,38 @@ namespace TestForASPCORE.Controllers
         [HttpPost]
         public IActionResult updateCategory(  ProductCategory obj)
         {
-            try
+            if (ModelState.IsValid)
             {
-                //string conn = "server=localhost; port=3306; database=SimpleInventorySystem;user=root;password=;";
-                /**using (MySqlConnection conn = new MySqlConnection("server=localhost; port=3306; database=SimpleInventorySystem;user=root;password=;"))
+                try
                 {
-                    conn.Open();
-                    string query = "update productCatagory set productName = '" + obj.name + "' where id='" + obj.id + "'";
-                    //String query2 = "update productCatagory set productName = '" + obj.name + "' where id=7";
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
-                    cmd.ExecuteNonQuery();
-                }**/
-                ProductCategoryContext context = HttpContext.RequestServices.GetService(typeof(TestForASPCORE.Models.ProductCategoryContext)) as ProductCategoryContext;
+                    //string conn = "server=localhost; port=3306; database=SimpleInventorySystem;user=root;password=;";
+                    /**using (MySqlConnection conn = new MySqlConnection("server=localhost; port=3306; database=SimpleInventorySystem;user=root;password=;"))
+                    {
+                        conn.Open();
+                        string query = "update productCatagory set productName = '" + obj.name + "' where id='" + obj.id + "'";
+                        //String query2 = "update productCatagory set productName = '" + obj.name + "' where id=7";
+                        MySqlCommand cmd = new MySqlCommand(query, conn);
+                        cmd.ExecuteNonQuery();
+                    }**/
+                    ProductCategoryContext context = HttpContext.RequestServices.GetService(typeof(TestForASPCORE.Models.ProductCategoryContext)) as ProductCategoryContext;
 
-                context.update(obj);
+                    context.update(obj);
 
-                return RedirectToAction("Index");
+                    return RedirectToAction("Index");
 
+                }
+
+                catch (Exception ex)
+                {
+                    throw;
+
+                }
             }
-
-            catch (Exception ex)
+            else
             {
-                throw;
-                
+                return RedirectToAction("Update");
             }
+            
             
         }
 
