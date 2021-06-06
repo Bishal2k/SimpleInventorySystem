@@ -30,6 +30,7 @@ namespace TestForASPCORE
             services.Add(new ServiceDescriptor(typeof(SupplierContext), new SupplierContext(Configuration.GetConnectionString("Conn"))));
             services.Add(new ServiceDescriptor(typeof(CustomerContext), new CustomerContext(Configuration.GetConnectionString("Conn"))));
             services.Add(new ServiceDescriptor(typeof(PurchaseContext), new PurchaseContext(Configuration.GetConnectionString("Conn"))));
+            services.Add(new ServiceDescriptor(typeof(SalesContext), new SalesContext(Configuration.GetConnectionString("Conn"))));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

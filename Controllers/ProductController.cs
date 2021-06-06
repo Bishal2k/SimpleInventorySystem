@@ -102,6 +102,29 @@ namespace TestForASPCORE.Controllers
             
 
         }
+        public IActionResult Delete(int id)
+        {
+            try
+            {
+                ProductContext context = HttpContext.RequestServices.GetService(typeof(TestForASPCORE.Models.ProductContext)) as ProductContext;
+                context.delete(id);
+                return RedirectToAction("Index");
+
+            }
+            catch (MySql.Data.MySqlClient.MySqlException)
+            {
+
+                throw;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+
+
+        }
 
     }
 }

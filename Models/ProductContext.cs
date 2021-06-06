@@ -160,6 +160,20 @@ namespace TestForASPCORE.Models
             }
             return list;
         }
+        public void delete(int id)
+        {
+            System.Diagnostics.Debug.WriteLine("value  is"+ id);
+            
+            String deleteQuery = "Delete from Product where id='" + id + "'";
+            using (MySqlConnection conn = GetConnection())
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand(deleteQuery, conn);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+
+            }
+        }
 
     }
 }

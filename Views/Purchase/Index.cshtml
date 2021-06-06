@@ -7,7 +7,7 @@
 <h1>Index</h1>
 
 <div class="float-right">
-    <form asp-controller="Supplier" asp-action="Index">
+    <form asp-controller="Purchase" asp-action="Index">
         <span class="btn-group">
             <input name="searchText" id="txtSearch" type="text" class="form-control" />
             <input type="submit" id="btnSearch" value="Search" class="btn btn-primary" />
@@ -76,8 +76,8 @@
                 </td>
 
                 <td>
-                    @Html.ActionLink("Edit", "Update", new { id = item.billNo, item.supplierName, item.productName, item.quantity, item.unitPrice, item.purchaseDate }, new { @class = "btn btn-success" })
-                    <a class="btn btn-danger delete" data-id="@item.billNo" data-controller="Purchase" data-action="Delete" data-body-message="Are you sure?"> Delete</a>
+                    @Html.ActionLink("Edit", "UpdatePurchase", new { id = item.supplierName, item.billNo, item.productName, item.quantity, item.unitPrice, item.purchaseDate,item.productId }, new { @class = "btn btn-success" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.supplierName, item.billNo, item.productName, item.quantity, item.unitPrice, item.purchaseDate, item.productId }, new { @class = "btn btn-danger" })
                 </td>
             </tr>
         }
