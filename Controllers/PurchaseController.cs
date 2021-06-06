@@ -27,7 +27,7 @@ namespace TestForASPCORE.Controllers
             return View(obj);
         }
         [HttpPost]
-        public IActionResult insertProduct(Purchase obj)
+        public IActionResult insertPurchase(Purchase obj)
         {
             
                 try

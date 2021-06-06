@@ -36,7 +36,12 @@ namespace TestForASPCORE.Models
         public string productName { get; set; }
 
         [Required(ErrorMessage = "Required")]
-        public DateTime purchaseDate  { get; set; }
-}
+        [DataType(DataType.Date, ErrorMessage = "Format is  MM/dd/yyyy")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
+        public string purchaseDate  { get; set; }
+
+        [Required(ErrorMessage = "Required")]
+        public double VAT { get; set; }
+    }
 }
 
