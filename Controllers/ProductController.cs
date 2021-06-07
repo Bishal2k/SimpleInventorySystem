@@ -31,9 +31,7 @@ namespace TestForASPCORE.Controllers
 
             ProductCategoryContext context = HttpContext.RequestServices.GetService(typeof(TestForASPCORE.Models.ProductCategoryContext)) as ProductCategoryContext;
             List<ProductCategory> list = context.getCategories();
-            // List<ProductCategory> list2 = getCategory();
             ViewBag.productData = list;
-            //ViewBag.productData = new List<string>() { "Android","iOs"};
             return View(obj);
         }
         [HttpPost]
@@ -114,13 +112,13 @@ namespace TestForASPCORE.Controllers
             catch (MySql.Data.MySqlClient.MySqlException)
             {
 
-                throw;
+                return RedirectToAction("Index");
 
             }
             catch (Exception ex)
             {
 
-                throw;
+                return RedirectToAction("Index");
             }
 
 

@@ -26,12 +26,21 @@ namespace TestForASPCORE.Controllers
 
         public IActionResult InsertSales(Sales obj)
         {
-            ProductContext context = HttpContext.RequestServices.GetService(typeof(TestForASPCORE.Models.ProductContext)) as ProductContext;
-            List<Product> productList = context.getProduct();
-            ViewBag.productData = productList;
-            SalesContext salesContext = HttpContext.RequestServices.GetService(typeof(TestForASPCORE.Models.SalesContext)) as SalesContext;
-            ViewBag.billNo = salesContext.billNo();
-            return View(obj);
+            try
+            {
+                ProductContext context = HttpContext.RequestServices.GetService(typeof(TestForASPCORE.Models.ProductContext)) as ProductContext;
+                List<Product> productList = context.getProduct();
+                ViewBag.productData = productList;
+                SalesContext salesContext = HttpContext.RequestServices.GetService(typeof(TestForASPCORE.Models.SalesContext)) as SalesContext;
+                ViewBag.billNo = salesContext.billNo();
+                return View(obj);
+            }
+            catch (Exception)
+            {
+
+                return View();
+            }
+            
         }
         [HttpPost]
         public IActionResult insertSales(Sales obj)
@@ -49,7 +58,7 @@ namespace TestForASPCORE.Controllers
             catch (Exception ex)
             {
 
-                throw;
+                return RedirectToAction("InsertSales");
             }
 
 
@@ -68,20 +77,19 @@ namespace TestForASPCORE.Controllers
             {
                 SalesContext context = HttpContext.RequestServices.GetService(typeof(TestForASPCORE.Models.SalesContext)) as SalesContext;
                 context.delete(id,productId);
-                //return View(obj);
                 return RedirectToAction("Index");
 
             }
             catch (MySql.Data.MySqlClient.MySqlException)
             {
 
-                throw;
+                return RedirectToAction("Index");
 
             }
             catch (Exception ex)
             {
 
-                throw;
+                return RedirectToAction("Index");
             }
 
 
@@ -92,9 +100,6 @@ namespace TestForASPCORE.Controllers
             ProductContext context = HttpContext.RequestServices.GetService(typeof(TestForASPCORE.Models.ProductContext)) as ProductContext;
             List<Product> productList = context.getProduct();
             ViewBag.productData = productList;
-            //CustomerContext customerContext = HttpContext.RequestServices.GetService(typeof(TestForASPCORE.Models.CustomerContext)) as CustomerContext;
-           // List<Supplier> customerList = customerContext.getCustomer();
-           // ViewBag.customerData = 
             return View(obj);
 
 
@@ -102,8 +107,7 @@ namespace TestForASPCORE.Controllers
         [HttpPost]
         public IActionResult updateSales(Sales obj)
         {
-            //if (ModelState.IsValid)
-           // {
+
                 try
                 {
 
@@ -121,12 +125,6 @@ namespace TestForASPCORE.Controllers
                     throw;
 
                 }
-            //}
-            /**
-            else
-            {
-                return RedirectToAction("UpdateSales");
-            }**/
 
 
         }

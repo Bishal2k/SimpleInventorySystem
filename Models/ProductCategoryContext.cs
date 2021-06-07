@@ -109,7 +109,7 @@ namespace TestForASPCORE.Models
             List<ProductCategory> list = new List<ProductCategory>();
             using (MySqlConnection conn = GetConnection())
             {
-                //int id;
+
                 bool isInt = int.TryParse(empSearch, out int id);
                 if (isInt)
                 {

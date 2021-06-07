@@ -111,7 +111,6 @@ namespace TestForASPCORE.Models
             List<Product> list = new List<Product>();
             using (MySqlConnection conn = GetConnection())
             {
-                //int id;
                 bool isInt = int.TryParse(productSearch, out int id);
                 if (isInt)
                 {
@@ -162,7 +161,6 @@ namespace TestForASPCORE.Models
         }
         public void delete(int id)
         {
-            System.Diagnostics.Debug.WriteLine("value  is"+ id);
             
             String deleteQuery = "Delete from Product where id='" + id + "'";
             using (MySqlConnection conn = GetConnection())

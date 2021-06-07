@@ -40,7 +40,6 @@ namespace TestForASPCORE.Controllers
                 try
                 {
                     PurchaseContext context = HttpContext.RequestServices.GetService(typeof(TestForASPCORE.Models.PurchaseContext)) as PurchaseContext;
-
                     context.insert(obj);
                     return RedirectToAction("Index");
 
@@ -49,8 +48,8 @@ namespace TestForASPCORE.Controllers
                 catch (Exception ex)
                 {
 
-                    throw;
-                }
+                    return RedirectToAction("Index");
+                 }
             
 
         }
@@ -70,8 +69,7 @@ namespace TestForASPCORE.Controllers
         [HttpPost]
         public IActionResult updatePurchase(Purchase obj)
         {
-            //if (ModelState.IsValid)
-            //{
+
                 try
                 {
 
@@ -89,11 +87,6 @@ namespace TestForASPCORE.Controllers
                     throw;
 
                 }
-            //}
-            /**else
-            {
-                return RedirectToAction("UpdatePurchase");
-            }***/
 
 
         }
@@ -109,13 +102,13 @@ namespace TestForASPCORE.Controllers
             catch (MySql.Data.MySqlClient.MySqlException)
             {
 
-                throw;
+                return RedirectToAction("Index");
 
             }
             catch (Exception ex)
             {
 
-                throw;
+                return RedirectToAction("Index");
             }
 
 

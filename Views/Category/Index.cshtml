@@ -17,24 +17,6 @@
     </form>
 
 </div>
-<!--<div id="MyPopup" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">
-                    &times;
-                </button>
-                <h4 class="modal-title"></h4>
-            </div>
-            <div class="modal-body">
-                <span id="lblError"></span>
-            </div>
-            <div class="modal-footer">
-                <input type="button" id="btnClosePopup" value="Close" class="btn btn-danger" data-dismiss="modal" />
-            </div>
-        </div>
-    </div>
-</div>-->
 
 <div id="grdCategory" style="margin:auto;">
     <div class="table-responsive-sm align-middle">
@@ -68,8 +50,6 @@
                             </td>
                             <td>
                                 @Html.ActionLink("Edit", "Update", new { id = item.id, item.name }, new { @class = "btn btn-success" })
-                                @*@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
-                                @*@Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "btn btn-danger" })*@
                                 <a class="btn btn-danger deleteAllItem" data-id="@item.id" data-controller="Category" data-action="delete" data-body-message="Are you sure?"> Delete</a>
                             </td>
                         </tr>

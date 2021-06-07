@@ -12,11 +12,7 @@
         <input class ="btn btn-danger"type="button" value="AddNewBill" onclick="editLabel()" />
         <form asp-action="insertSales">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <!--<div class="form-group">
-            <label asp-for="billNo" class="control-label"></label>
-            <input asp-for="billNo" class="form-control" />
-            <span asp-validation-for="billNo" class="text-danger"></span>
-        </div> -->
+
 
             <div class="form-group">
                 <label  class="control-label" id="lblBillNo" > Bill No </label> @ViewBag.billNo

@@ -52,8 +52,8 @@ namespace TestForASPCORE.Controllers
 
             catch (Exception ex)
             {
-                throw;
-                //return RedirectToAction("Index");
+                
+                return RedirectToAction("Index");
             }
         }
         public IActionResult Update(Supplier obj)
@@ -97,7 +97,6 @@ namespace TestForASPCORE.Controllers
             {
                 CustomerContext context = HttpContext.RequestServices.GetService(typeof(TestForASPCORE.Models.CustomerContext)) as CustomerContext;
                 context.delete(id);
-                //return View(obj);
                 return RedirectToAction("Index");
 
             }
@@ -110,7 +109,7 @@ namespace TestForASPCORE.Controllers
             catch (Exception ex)
             {
 
-                throw;
+                return RedirectToAction("Index");
             }
 
 

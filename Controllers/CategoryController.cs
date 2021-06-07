@@ -64,9 +64,7 @@ namespace TestForASPCORE.Controllers
             try
             {
                 ProductCategoryContext context = HttpContext.RequestServices.GetService(typeof(TestForASPCORE.Models.ProductCategoryContext)) as ProductCategoryContext;
-
                 context.delete(id);
-                //return View(obj);
                 return RedirectToAction("Index");
 
             }
@@ -75,7 +73,7 @@ namespace TestForASPCORE.Controllers
 
                 string errorMessage = "The data is associated with other tables. Please remove the data ASsociations!";
                 ViewBag.Message2 = errorMessage;
-                return View("../Category/Index",ViewBag.Message2);
+                return RedirectToAction("Index");
 
             }
             catch (Exception ex)
@@ -103,15 +101,6 @@ namespace TestForASPCORE.Controllers
             {
                 try
                 {
-                    //string conn = "server=localhost; port=3306; database=SimpleInventorySystem;user=root;password=;";
-                    /**using (MySqlConnection conn = new MySqlConnection("server=localhost; port=3306; database=SimpleInventorySystem;user=root;password=;"))
-                    {
-                        conn.Open();
-                        string query = "update productCatagory set productName = '" + obj.name + "' where id='" + obj.id + "'";
-                        //String query2 = "update productCatagory set productName = '" + obj.name + "' where id=7";
-                        MySqlCommand cmd = new MySqlCommand(query, conn);
-                        cmd.ExecuteNonQuery();
-                    }**/
                     ProductCategoryContext context = HttpContext.RequestServices.GetService(typeof(TestForASPCORE.Models.ProductCategoryContext)) as ProductCategoryContext;
 
                     context.update(obj);
@@ -122,7 +111,7 @@ namespace TestForASPCORE.Controllers
 
                 catch (Exception ex)
                 {
-                    throw;
+                    return RedirectToAction("update");
 
                 }
             }

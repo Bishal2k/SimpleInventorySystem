@@ -87,7 +87,6 @@
 
                         <td>
                             @Html.ActionLink("Edit", "UpdateSales", new { id = item.productId, item.billNo, item.customerId, item.productId, item.productName, item.quantity, item.unitPrice }, new { @class = "btn btn-success" })
-                            <!--<a class="btn btn-danger delete2" data-id="@item.billNo", data-id2="@item.productId" data-controller="Sales" data-action="Delete" data-body-message="Are you sure?"> Delete</a>-->
                             @Html.ActionLink("Delete", "Delete", new { id = item.billNo, item.productId }, new { @class = "btn btn-danger" })
                         </td>
                     </tr>

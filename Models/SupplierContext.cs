@@ -98,7 +98,6 @@ namespace TestForASPCORE.Models
             List<Supplier> list = new List<Supplier>();
             using (MySqlConnection conn = GetConnection())
             {
-                //int id;
                 bool isInt = int.TryParse(empSearch, out int id);
                 if (isInt)
                 {

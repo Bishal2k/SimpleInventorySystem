@@ -98,10 +98,6 @@ namespace TestForASPCORE.Models
             List<Purchase> list = new List<Purchase>();
             using (MySqlConnection conn = GetConnection())
             {
-                //int id;
-                //bool isInt = int.TryParse(productSearch, out int id);
-               // if (isInt)
-                //{
                     conn.Open();
                     MySqlCommand cmd = new MySqlCommand("select billNo,supplierId,productId,supplier.supplierName, product.name, quantity, unitPrice, DATE(purchaseDate) as purchaseDate from purchaseBill join Supplier on Supplier.id = purchaseBill.supplierId join Product on Product.id = purchaseBill.productId where billNo='" + productSearch + "'", conn);
 
@@ -126,10 +122,6 @@ namespace TestForASPCORE.Models
                         }
                         conn.Close();
                     }
-                //}
-
-
-
             }
             return list;
         }
