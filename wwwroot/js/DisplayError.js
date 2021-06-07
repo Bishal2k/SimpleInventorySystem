@@ -8,11 +8,11 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title">Confrimation Message!!!</h5>
+                            <h5 class="modal-title">Confirmation Message!!!</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
+                            <span aria-hidden="true">&times;</span></button>
+                            
+                        </div>
                         <div class="modal-body delete-modal-body">
                             
                         </div>
@@ -25,19 +25,18 @@
                     </div>`);
 
     //Delete Action
-    $(".delete2").on('click', (e) => {
-        <script>alert("Entered Delete")</script>
+    $(".delete").on('click', (e) => {
         e.preventDefault();
 
         target = e.target;
-        var id = $(target).data('id');
-        var productId = $(target).data('id2')
+        var Id = $(target).data('id');
+        var productId = $(target).data('productId');
         var controller = $(target).data('controller');
         var action = $(target).data('action');
         var bodyMessage = $(target).data('body-message');
         redirectUrl = $(target).data('redirect-url');
 
-        url = "/" + controller + "/" + action + "?Id=" + id ;
+        url = "/" + controller + "/" + action + "?Id=" + Id + "&productId="+productId;
         $(".delete-modal-body").text(bodyMessage);
         $("#deleteModal").modal('show');
     });

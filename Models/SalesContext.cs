@@ -21,7 +21,9 @@ namespace TestForASPCORE.Models
         public void addNewBill()
         {
             DateTime date = DateTime.Now;
-            string insertQuery = "Insert into SalesBillCount (salesDate) values ('"+date+"') ";
+            string conDate = date.ToString("yyyy-MM-dd");
+           // System.Diagnostics.Debug.WriteLine("value in list is"+conDate);
+            string insertQuery = "Insert into SalesBillCount (salesDate) values ('"+conDate+"') ";
             using (MySqlConnection conn = GetConnection())
             {
 

@@ -3,7 +3,7 @@
 @{
     ViewData["Title"] = "Index";
 }
-
+<script src="~/js/Delete.js" asp-append-version="true"></script>
 <h1>Product Entry</h1>
 <div class="" style="float:right; ">
     <form asp-controller="Product" asp-action="Index">
@@ -68,7 +68,7 @@
                         </td>
                         <td>
                             @Html.ActionLink("Edit", "Update", new { id = item.id, item.name, item.barCode, item.categoryName }, new { @class = "btn btn-success" })
-                            <a class="btn btn-danger delete" data-id="@item.id" data-controller="Product" data-action="delete" data-body-message="Are you sure?"> Delete</a>
+                            <a class="btn btn-danger deleteAllItem" data-id="@item.id" data-controller="Product" data-action="delete" data-body-message="Are you sure?"> Delete</a>
                         </td>
                     </tr>
                 }

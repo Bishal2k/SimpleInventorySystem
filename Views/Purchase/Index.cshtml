@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Purchase Bill</h1>
 
 <div class="float-right">
     <form asp-controller="Purchase" asp-action="Index">
@@ -20,7 +20,7 @@
     <br />
     <a asp-action="InsertPurchase" class="btn btn-primary">Add</a>
 </p>
-<table class="table">
+<table class=" table table-sm" >
     <thead>
         <tr>
             <th>
@@ -77,7 +77,8 @@
 
                 <td>
                     @Html.ActionLink("Edit", "UpdatePurchase", new { id = item.supplierName, item.billNo, item.productName, item.quantity, item.unitPrice, item.purchaseDate,item.productId }, new { @class = "btn btn-success" })
-                    @Html.ActionLink("Delete", "Delete", new { id = item.supplierName, item.billNo, item.productName, item.quantity, item.unitPrice, item.purchaseDate, item.productId }, new { @class = "btn btn-danger" })
+                    @Html.ActionLink("Delete", "delete", new { id = item.supplierName, item.billNo, item.productName, item.quantity, item.unitPrice, item.purchaseDate, item.productId }, new { @class = "btn btn-danger" })
+
                 </td>
             </tr>
         }

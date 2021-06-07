@@ -104,7 +104,7 @@ namespace TestForASPCORE.Controllers
             catch (MySql.Data.MySqlClient.MySqlException)
             {
 
-                throw;
+                return RedirectToAction("Index");
 
             }
             catch (Exception ex)

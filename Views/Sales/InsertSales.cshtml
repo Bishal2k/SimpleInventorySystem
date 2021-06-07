@@ -4,13 +4,12 @@
     ViewData["Title"] = "InsertSales";
 }
 
-<h1>InsertSales</h1>
+<h1>Insert Sales</h1>
 
-<h4>Sales</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <input type="button" value="AddNewBill" onclick="editLabel()" />
+        <input class ="btn btn-danger"type="button" value="AddNewBill" onclick="editLabel()" />
         <form asp-action="insertSales">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <!--<div class="form-group">
@@ -61,20 +60,18 @@
         </div>
         -->
             <div class="form-group">
-                <input type="submit" value="Update" class="btn btn-primary" />
+                <input type="submit" value="Add" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-outline-success">Sales List</a>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+
 <script>
     function editLabel()
     {
         document.getElementById("lblBillNo").Value = "New BillNo";
-        //location.href = 
         window.location.href = '@Url.Action("getBillNo", "Sales")/';
     }
 </script>

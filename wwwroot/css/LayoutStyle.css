@@ -5,13 +5,16 @@
     font-weight: 200;
     background-color: #2e353d;
     position: fixed;
-    top: auto;
+    top: 8%;
     width: 200px;
     height: 100%;
     color: #e1ffff;
 }
 
 .brand {
+    position:fixed;
+    overflow:hidden;
+    z-index:9999;
     font-weight:bold;
     background-color: aquamarine;
     width: 100%;

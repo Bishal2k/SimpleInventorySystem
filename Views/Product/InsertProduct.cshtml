@@ -30,17 +30,18 @@
      </div>-->
             <div class="form-group">
                 <label asp-for="categoryName" class="control-label"> Category</label>
-                <select asp-for="categoryName" class="control-label" asp-items="@(new SelectList(@ViewBag.productData,"id","name"))">
+                <select asp-for="categoryName" class="form-control" asp-items="@(new SelectList(@ViewBag.productData,"id","name"))">
                 </select>
             </div>
+
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Insert" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index" class="btn btn-outline-success">Product Category List</a>
 </div>
 

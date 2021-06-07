@@ -4,25 +4,26 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Simple Inventory System</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/js/Delete.js" asp-append-version="true"></script>
+
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!------ Include the above in your HEAD tag ---------->
 
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <!------ Include the above in your HEAD tag ---------->
 
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="~/css/LayoutStyle.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <!--<script src="~/js/Delete.js" asp-append-version="true"></script>-->
+
 </head>
-<body>
-    <div class="brand">Simple Inventory System</div>
+    <div class="brand " >Simple Inventory System</div>
     <div class="nav-side-menu">
 
         <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
@@ -37,32 +38,32 @@
                 </li>
 
                 <li>
-                    <a  asp-controller="Product" asp-action="Index">
+                    <a asp-controller="Product" asp-action="Index">
                         <i class="fa fa-list"></i> Product
                     </a>
                 </li>
 
 
                 <li>
-                    <a  asp-controller="Supplier" asp-action="Index">
+                    <a asp-controller="Supplier" asp-action="Index">
                         <i class="fa fa-user fa-lg"></i> Supplier
                     </a>
                 </li>
 
                 <li>
-                    <a  asp-controller="Customer" asp-action="Index">
+                    <a asp-controller="Customer" asp-action="Index">
                         <i class="fa fa-user fa-lg"></i> Customer
                     </a>
                 </li>
 
                 <li>
-                    <a  asp-controller="Purchase" asp-action="Index">
+                    <a asp-controller="Purchase" asp-action="Index">
                         <i class="fa fa-shopping-cart"></i> Purchase
                     </a>
                 </li>
 
                 <li>
-                    <a  asp-controller="Sales" asp-action="Index">
+                    <a asp-controller="Sales" asp-action="Index">
                         <i class="fa fa-area-chart"></i> Sales
                     </a>
                 </li>
@@ -73,26 +74,25 @@
             </ul>
         </div>
     </div>
+    <body>
+        <div class="container" style="margin-left:15%;padding-top:5%;">
+
+            <main role="main" class="pb-3">
 
 
-    <div class="container" style="margin:auto;">
+                @RenderBody()
+            </main>
+        </div>
 
-        <main role="main" class="pb-3">
-
-
-            @RenderBody()
-        </main>
-    </div>
-
-    <!--<footer class="border-top footer text-muted">
+        <!--<footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2021 - TestForASPCORE - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>-->
-    <!--<script src="~/lib/jquery/dist/jquery.min.js"></script>-->
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    <script src="~/js/Delete.js" asp-append-version="true"></script>
-    @RenderSection("Scripts", required: false)
-</body>
+        <!--<script src="~/lib/jquery/dist/jquery.min.js"></script>-->
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        <script src="~/js/Delete.js" asp-append-version="true"></script>
+        @RenderSection("Scripts", required: false)
+    </body>
 </html>

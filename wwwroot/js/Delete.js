@@ -8,11 +8,11 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title">Confrimation Message!!!</h5>
+                            <h5 class="modal-title">Confirmation Message!!!</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
+                            <span aria-hidden="true">&times;</span></button>
+                            
+                        </div>
                         <div class="modal-body delete-modal-body">
                             
                         </div>
@@ -25,7 +25,7 @@
                     </div>`);
 
     //Delete Action
-    $(".delete").on('click', (e) => {
+    $(".deleteAllItem").on('click', (e) => {
         e.preventDefault();
 
         target = e.target;

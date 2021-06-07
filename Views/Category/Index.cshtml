@@ -2,7 +2,7 @@
 @{
     ViewData["Title"] = "Index";
 }
-
+<script src="~/js/Delete.js" asp-append-version="true"></script>
 <h1>Category</h1>
 
 
@@ -70,7 +70,7 @@
                                 @Html.ActionLink("Edit", "Update", new { id = item.id, item.name }, new { @class = "btn btn-success" })
                                 @*@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
                                 @*@Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "btn btn-danger" })*@
-                                <a class="btn btn-danger delete" data-id="@item.id" data-controller="Category" data-action="delete" data-body-message="Are you sure?"> Delete</a>
+                                <a class="btn btn-danger deleteAllItem" data-id="@item.id" data-controller="Category" data-action="delete" data-body-message="Are you sure?"> Delete</a>
                             </td>
                         </tr>
                     }
