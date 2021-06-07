@@ -57,7 +57,7 @@ namespace TestForASPCORE
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Purchase}/{action=Index}/{id?}");
+                    pattern: "{controller=Category}/{action=Index}/{id?}");
             });
         }
     }

@@ -3,20 +3,21 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Category</h1>
 
 
-<div class="float-right">
+<div class="" style="float:right; ">
     <form asp-controller="Category" asp-action="Index">
         <span class="btn-group">
             <input name="searchText" id="txtSearch" type="text" class="form-control" />
-            <input type="submit" id="btnSearch" value="Search" class="btn btn-primary" />
-        </span>
 
+
+        </span>
+        <input type="submit" id="btnSearch" value="Search" class="btn btn-primary" style="float:right;" />
     </form>
 
 </div>
-<div id="MyPopup" class="modal fade" role="dialog">
+<!--<div id="MyPopup" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -33,11 +34,11 @@
             </div>
         </div>
     </div>
-</div>
+</div>-->
 
-<div id="grdCategory">
-    <div class="table-responsive-md">
-        <table class="table table-bordered table-md" id="categoryTable">
+<div id="grdCategory" style="margin:auto;">
+    <div class="table-responsive-sm align-middle">
+        <table class="table table-bordered table-sm" id="categoryTable">
             <thead>
                 <tr>
                     <th>
@@ -83,13 +84,12 @@
 
             </tbody>
         </table>
-        <input id="txtDisplayError" type="text" style="display:none;" data-message="@ViewBag.Message2"/>
+        <input id="txtDisplayError" type="text" style="display:none;" data-message="@ViewBag.Message2" />
     </div>
-  
+
 
 </div>
 <p class="float-right">
-    <br/>
+    <br />
     <a asp-action="Insert" class="btn btn-primary">Create New</a>
 </p>
- 
