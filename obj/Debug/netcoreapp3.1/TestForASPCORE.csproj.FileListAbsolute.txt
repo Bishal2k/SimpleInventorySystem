@@ -268,3 +268,4 @@ C:\Users\BISHAL\source\repos\SimpleInventorySystem\TestForASPCORE\obj\Debug\netc
 C:\Users\BISHAL\source\repos\SimpleInventorySystem\TestForASPCORE\obj\Debug\netcoreapp3.1\Razor\Views\Sales\InsertSales.cshtml.g.cs
 C:\Users\BISHAL\source\repos\SimpleInventorySystem\TestForASPCORE\obj\Debug\netcoreapp3.1\Razor\Views\Sales\Index.cshtml.g.cs
 C:\Users\BISHAL\source\repos\SimpleInventorySystem\TestForASPCORE\obj\Debug\netcoreapp3.1\Razor\Views\Sales\UpdateSales.cshtml.g.cs
+C:\Users\BISHAL\source\repos\SimpleInventorySystem\TestForASPCORE\obj\Debug\netcoreapp3.1\Razor\Views\Error\Error.cshtml.g.cs

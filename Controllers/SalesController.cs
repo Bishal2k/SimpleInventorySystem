@@ -49,7 +49,6 @@ namespace TestForASPCORE.Controllers
             try
             {
                 SalesContext context = HttpContext.RequestServices.GetService(typeof(TestForASPCORE.Models.SalesContext)) as SalesContext;
-
                 context.insert(obj);
                 return RedirectToAction("InsertSales");
 

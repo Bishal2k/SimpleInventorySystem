@@ -70,16 +70,15 @@ namespace TestForASPCORE.Controllers
             }
             catch (MySql.Data.MySqlClient.MySqlException)
             {
-
-                string errorMessage = "The data is associated with other tables. Please remove the data ASsociations!";
-                ViewBag.Message2 = errorMessage;
+                return RedirectToAction("Index");
                 return RedirectToAction("Index");
 
             }
             catch (Exception ex)
             {
 
-                throw;
+                
+                return RedirectToAction("Index");
             }
             
             

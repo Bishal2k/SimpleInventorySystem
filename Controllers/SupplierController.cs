@@ -64,7 +64,6 @@ namespace TestForASPCORE.Controllers
             {
                 SupplierContext context = HttpContext.RequestServices.GetService(typeof(TestForASPCORE.Models.SupplierContext)) as SupplierContext;
                 context.delete(id);
-                //return View(obj);
                 return RedirectToAction("Index");
 
             }
